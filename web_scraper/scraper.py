@@ -17,20 +17,19 @@ def get_citations_needed_report(url):
     page = requests.get(url)
     soup = BeautifulSoup(page.content, 'html.parser')
     result = soup.findAll('p')
-
+    finall = []
     for i in result:
         parent = i.findAll('a',title='Wikipedia:Citation needed')
         if parent: 
             paragraph = i.text
-            partition = paragraph.split("[citation needed]")
-            dictinery_for_citation = {
-                                    "sentence": partition[0], 
-                                    "paragraph": i.text
-                                    }
-            for i in dictinery_for_citation:
-                print(f'{i} --->{dictinery_for_citation[i]}')
-                print('*************************************************')
-            # print(dictinery_for_citation)
+            find_sentence = paragraph.split("[citation needed]")
+            print(f'The sentense----> :{find_sentence[0]}')
+            print(f'The paragraph ------>:{paragraph}')
+            print('*************************************************')
+            finall.append(paragraph)
+   
+    return finall
+
             
       
 
