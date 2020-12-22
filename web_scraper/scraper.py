@@ -27,6 +27,7 @@ def get_citations_needed_report(url):
             print(f'The paragraph ------>:{paragraph}')
             print('*************************************************')
             finall.append(paragraph)
+            
    
     return finall
 
